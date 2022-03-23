@@ -1,42 +1,53 @@
-// use local storage to manage cart data
-const addToDb = id =>{
+
+const getDataFromDB = () => {
+    // Declare empty object if no cart data found in local storage it will be returned
     let shoppingCart = {};
 
-    //get the shopping cart from local storage
+    //get the shopping cart data from local storage
     const storedCart = localStorage.getItem('shopping-cart');
-    if(storedCart){
+
+    // If data is available convert as object and return
+    if (storedCart) {
         shoppingCart = JSON.parse(storedCart);
     }
+    return shoppingCart;
+}
+
+
+// use local storage to manage cart data
+const addToDb = id => {
+    let shoppingCart = getDataFromDB();
 
     // add quantity
     const quantity = shoppingCart[id];
-    if(quantity){
+    if (quantity) {
         const newQuantity = quantity + 1;
         shoppingCart[id] = newQuantity;
     }
-    else{
+    else {
         shoppingCart[id] = 1;
     }
     localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
 }
 
-const removeFromDb = id =>{
+const removeFromDb = id => {
     const storedCart = localStorage.getItem('shopping-cart');
-    if(storedCart){
+    if (storedCart) {
         const shoppingCart = JSON.parse(storedCart);
-        if(id in shoppingCart){
+        if (id in shoppingCart) {
             delete shoppingCart[id];
             localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
         }
     }
 }
 
-const deleteShoppingCart = () =>{
+const deleteShoppingCart = () => {
     localStorage.removeItem('shopping-cart');
 }
 
 export {
-    addToDb, 
+    addToDb,
     removeFromDb,
-    deleteShoppingCart
+    deleteShoppingCart,
+    getDataFromDB
 }
