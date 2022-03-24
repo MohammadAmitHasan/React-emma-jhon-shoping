@@ -1,6 +1,6 @@
 
 const getDataFromDB = () => {
-    // Declare empty object if no cart data found in local storage it will be returned
+    // Declare empty object if no cart data found in local storage it will be
     let shoppingCart = {};
 
     //get the shopping cart data from local storage
