@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.svg'
 import './Header.css'
 const Header = () => {
@@ -6,12 +7,12 @@ const Header = () => {
         <nav className='navigation-bar'>
             <img src={logo} alt="logo" />
             <div>
-                <a href="/shop">Shop</a>
-                <a href="/order">Order</a>
-                <a href="/inventory">Inventory</a>
-                <a href="/about">About</a>
-            </div>
-        </nav>
+                <Link to="/shop">Shop</Link>
+                <Link to="/orders">Order</Link>
+                <Link to="/inventory" > Inventory</Link >
+                <Link to="/about" > About</Link >
+            </div >
+        </nav >
     );
 };
 
