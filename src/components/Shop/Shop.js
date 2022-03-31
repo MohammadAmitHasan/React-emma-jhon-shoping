@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import useProducts from '../../CustomHooks/useProducts';
 import { addToDb, getDataFromDB } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useProducts();
     const [cart, setCart] = useState([]);
-
-    // Effect handle for loading data from product database
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
 
     // Handle effect for loading data from local storage
     useEffect(() => {
