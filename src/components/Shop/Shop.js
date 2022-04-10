@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useProducts from '../../CustomHooks/useProducts';
 import { addToDb, getDataFromDB } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
@@ -7,6 +7,9 @@ import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
+
+    let navigate = useNavigate();
+
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useState([]);
 
@@ -65,6 +68,9 @@ const Shop = () => {
                     <button>
                         <Link to={'/orders'}>Review Order</Link >
                     </button>
+
+                    <button onClick={() => navigate('/orders')}>Review Order</button>
+
                 </Cart>
             </div>
         </div>
