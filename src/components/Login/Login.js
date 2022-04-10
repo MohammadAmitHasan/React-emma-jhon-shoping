@@ -1,21 +1,59 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 import googleLogo from '../../images/google.png'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../config.init';
+
+
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmail = e => {
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = e => {
+        setPassword(e.target.value);
+    }
+
+    const handleLoginSubmit = e => {
+        e.preventDefault();
+        signInWithEmailAndPassword(email, password);
+    }
+
+    const navigate = useNavigate();
+    if (user) {
+        navigate('/');
+    }
+
+
     return (
         <div className='form-container'>
             <div>
                 <h3 className='form-title'>Login</h3>
-                <form>
+                {
+                    error && <p className='error-msg'>
+                        {error.message}
+                    </p>
+                }
+                <form onSubmit={handleLoginSubmit}>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="" placeholder='Your Email' required />
+                        <input onBlur={handleEmail} type="email" name="email" id="email" placeholder='Your Email' required />
                     </div>
+
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="email" name="password" id="" placeholder='Type your password' required />
+                        <input onBlur={handlePassword} type="password" name="password" id="password" placeholder='Type your password' required />
                     </div>
                     <input className='form-submit-btn' type="submit" value="Login" />
                 </form>

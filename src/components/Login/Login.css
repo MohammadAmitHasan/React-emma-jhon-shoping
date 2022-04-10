@@ -45,11 +45,15 @@
     width: 415px;
     height: 55px;
     background-color: rgba(255, 153, 0, 0.3);
-
+    cursor: pointer;
     font-weight: 400;
     font-size: 21px;
     color: #0E161A;
     border-radius: 5px;
+}
+
+.form-submit-btn:hover {
+    background-color: rgba(255, 153, 0, 0.5);
 }
 
 .form-toggle {
@@ -82,4 +86,12 @@
 
 .google-sign-in-btn span {
     margin-left: 5px;
+}
+
+.error-msg {
+    background-color: rgba(255, 0, 0, 0.774);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
 }
