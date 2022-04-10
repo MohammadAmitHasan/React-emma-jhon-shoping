@@ -1,4 +1,4 @@
-.navigation-bar{
+.navigation-bar {
     height: 80px;
     background-color: #1C2B35;
     display: flex;
@@ -6,7 +6,8 @@
     justify-content: space-between;
     padding: 0px 140px;
 }
-.navigation-bar a{
+
+.navigation-bar a {
     color: white;
     text-decoration: none;
     font-size: 17px;
@@ -14,6 +15,25 @@
     padding: 10px;
     border-radius: 5px;
 }
-.navigation-bar a:hover{
-    background-color: rgb(235, 62, 62);
+
+.navigation-bar a:hover {
+    background-color: rgba(226, 204, 7, 0.678);
+}
+
+#logout {
+    color: rgb(255, 65, 65);
+}
+
+#logout:hover {
+    background-color: rgba(209, 36, 36, 0.932);
+    color: white;
+}
+
+#login {
+    color: rgb(0, 255, 0);
+}
+
+#login:hover {
+    background-color: rgba(0, 206, 0, 0.678);
+    color: white;
 }

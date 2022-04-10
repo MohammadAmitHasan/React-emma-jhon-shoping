@@ -23,7 +23,8 @@ const Shipping = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-
+        const shippingInfo = { name, address, phone, email: user?.email }
+        console.log(shippingInfo);
     }
 
     return (
@@ -43,12 +44,12 @@ const Shipping = () => {
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="password">Address</label>
-                        <input onBlur={handleAddress} type="password" name="password" id="password" placeholder='Type your password' required />
+                        <label htmlFor="address">Address</label>
+                        <input onBlur={handleAddress} type="text" name="address" id="address" placeholder='Provide your address' required />
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="confirm-password">Phone Number</label>
+                        <label htmlFor="phone-number">Phone Number</label>
                         <input onBlur={handlePhone} type="text" name="phone" id="phone-number" placeholder='Your phone number' required />
                     </div>
 

@@ -15,9 +15,11 @@ const Header = () => {
                 <Link to="/orders">Order</Link>
                 <Link to="/inventory" > Inventory</Link >
                 <Link to="/about" > About</Link >
-                <Link to="/login">Login</Link>
                 {
-                    user && <button onClick={() => signOut(auth)}>Logout</button>
+                    user ?
+                        <Link id='logout' onClick={() => signOut(auth)} to={'/'}>Logout</Link>
+                        :
+                        <Link id='login' to="/login">Login</Link>
                 }
             </div >
         </nav >
