@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import googleLogo from '../../images/google.png'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../config.init';
-
-
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -30,9 +28,11 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
     const navigate = useNavigate();
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
 
@@ -44,6 +44,8 @@ const Login = () => {
                     error && <p className='error-msg'>
                         {error.message}
                     </p>
+                }{
+                    loading && <p>Loading ....</p>
                 }
                 <form onSubmit={handleLoginSubmit}>
                     <div className="input-group">

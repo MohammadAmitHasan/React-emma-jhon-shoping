@@ -37,11 +37,6 @@ const SignUp = () => {
         createUserWithEmailAndPassword(email, password);
     }
 
-
-    // if (error) {
-    //     setError(error.message);
-    // }
-
     return (
         <div className='form-container'>
             <div>
