@@ -1,12 +1,13 @@
 .form-container {
     display: flex;
     justify-content: center;
-    height: 500px;
     width: 500px;
     margin: 20px auto;
     border: 1px solid #95A0A7;
     border-radius: 8px;
     box-shadow: -12px 13px 0 rgba(255, 153, 0, 0.3);
+    padding-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .form-title {
@@ -54,4 +55,31 @@
 .form-toggle {
     text-decoration: none;
     color: #df8601;
+}
+
+.special-separator {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    margin: 30px 0;
+}
+
+.google-sign-in-btn {
+    margin: 20 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 413px;
+    height: 55px;
+    border: 1px solid #95A0A7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: white;
+
+    font-weight: 400;
+    font-size: 17px;
+    color: #2A414F;
+}
+
+.google-sign-in-btn span {
+    margin-left: 5px;
 }
